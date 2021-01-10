@@ -31,7 +31,7 @@ module.exports = {
           lastName: 'Moreno',
           age: 21,
           roleId: 1,
-          programmingLanguageId: 2
+          designerTypeId: 2
         },
         {
           firstName: 'Martín',
