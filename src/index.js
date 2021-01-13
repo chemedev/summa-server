@@ -17,7 +17,8 @@ app.use(express.json())
 //? routes
 app.get('/', (_req, res) => res.send('Challenge API ready.'))
 app.use('/companies', require('./routes/companies'))
-// app.get('/employees', require('./routes/Employee'))
+app.use('/employees', require('./routes/employees'))
+// app.use('/roles', require('./routes/roles'))
 
 async function server() {
   try {

@@ -27,7 +27,7 @@ const updateCompany = async (req, res) => {
 //? Not required.
 const createCompany = async (req, res) => {
   try {
-    const data = await db.Companies.create({
+    const data = await db.Company.create({
       name: req.body.name
     })
     res.json({ error: false, data })
