@@ -1,12 +1,20 @@
+//? set env variables
+const dotEnv = require('dotenv')
+dotEnv.config()
+
+//? imports
 const cors = require('cors')
 const express = require('express')
 
+//? express
 const app = express()
 const PORT = process.env.PORT || 3001
 
+//? middlewares
 app.use(cors())
 app.use(express.json())
 
+//? routes
 app.get('/', (_req, res) => res.send('Challenge API ready.'))
 // app.get('/companies', require('./routes/Company'))
 // app.get('/employees', require('./routes/Employee'))
