@@ -16,9 +16,9 @@ const getEmployees = async (req, res) => {
     let options = {}
 
     if (req.query.roleId) {
-      options = { where: req.query, attributes }
+      options = { where: req.query, attributes, order: ['id'] }
     } else {
-      options = { attributes }
+      options = { attributes, order: ['id'] }
     }
 
     data.employees = await db.Employee.findAll(options)
@@ -59,12 +59,21 @@ const getEmployeeById = async (req, res) => {
 
 const updateEmployee = async (req, res) => {
   try {
-    if (!req.body.name) throw 'Name field must be provided.'
-    const data = await db.Employy.update(
-      { name: req.body.name },
-      { where: { id: 1 }, returning: true }
-    )
-    res.json({ error: false, data: data[1] })
+    let employee = {}
+    if (req.body.firstName) employee.firstName = req.body.firstName
+    if (req.body.lastName) employee.lastName = req.body.lastName
+    if (req.body.age) employee.age = req.body.age
+    if (req.body.roleId) employee.roleId = req.body.roleId
+    if (req.body.programmingLanguageId)
+      employee.programmingLanguageId = req.body.programmingLanguageId
+    if (req.body.designerTypeId)
+      employee.designerTypeId = req.body.designerTypeId
+    const data = await db.Employee.update(employee, {
+      where: { id: req.params.id },
+      returning: true
+    })
+
+    res.json({ error: false })
   } catch (error) {
     console.error(error)
     res
@@ -76,7 +85,12 @@ const updateEmployee = async (req, res) => {
 const createEmployee = async (req, res) => {
   try {
     const data = await db.Employee.create({
-      name: req.body.name
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      age: req.body.age,
+      roleId: req.body.roleId,
+      designerTypeId: req.body.designerTypeId,
+      programmingLanguageId: req.body.programmingLanguageId
     })
     res.json({ error: false, data })
   } catch (error) {
