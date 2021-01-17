@@ -104,7 +104,8 @@ const createEmployee = async (req, res) => {
 const deleteEmployee = async (req, res) => {
   //TODO: check id param type
   try {
-    const data = await db.Employee.destroy({ id: req.params.id })
+    const data = await db.Employee.destroy({ where: { id: req.params.id } })
+    res.status(202).json({ error: false })
   } catch (error) {
     console.error(error)
     res
