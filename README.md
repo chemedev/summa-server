@@ -25,6 +25,10 @@ Open [http://localhost:3001](http://localhost:3001) to check OK status.
 Runs the app in the production mode with **nodejs**.\
 Open [http://localhost:3001](http://localhost:3001) to check OK status.
 
+### `npm test`
+
+Runs app' tests with **mocha**.\
+
 ### `npm run dev:clean`
 
 This command will drop the development database.
@@ -32,6 +36,10 @@ This command will drop the development database.
 ### `npm run prod:clean`
 
 This command will drop the production database.
+
+### `npm run test:clean`
+
+This command will drop the test database.
 
 ### `make clean`
 
