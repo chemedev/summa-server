@@ -12,6 +12,12 @@ prod:
 	make db
 	@node .
 
+test:
+	make db
+	@npx mocha src/tests --exit
+	@npm run test:clean
+
 clean:
 	@npm run dev:clean
+	@npm run test:clean
 	@npm run prod:clean

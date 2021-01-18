@@ -4,9 +4,10 @@
   "description": "Server for Summa challenge",
   "main": "src/index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test mocha",
+    "test": "cross-env NODE_ENV=test make test",
     "dev": "cross-env NODE_ENV=development make dev",
     "start": "cross-env NODE_ENV=production make prod",
+    "test:clean": "cross-env NODE_ENV=test npx sequelize-cli db:drop",
     "dev:clean": "cross-env NODE_ENV=development npx sequelize-cli db:drop",
     "prod:clean": "cross-env NODE_ENV=production npx sequelize-cli db:drop"
   },
@@ -29,7 +30,10 @@
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cross-env": "^7.0.3",
+    "mocha": "^8.2.1",
     "nodemon": "^2.0.7",
     "sequelize-cli": "^6.2.0"
   }
