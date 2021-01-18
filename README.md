@@ -27,7 +27,7 @@ Open [http://localhost:3001](http://localhost:3001) to check OK status.
 
 ### `npm test`
 
-Runs app' tests with **mocha**.\
+Runs app' tests with **mocha**.
 
 ### `npm run dev:clean`
 
